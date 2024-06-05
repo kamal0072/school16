@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail</title>
+</head>
+<body>
+    <h1>The Post Detail Templates</h1>
+    {% for dt in page_obj %}
+        <h1>{{dt.id}} . {{dt.title}}</h1>
+        <p>{{dt.desc}}</p>
+        <q>{{dt.auther}}</q>
+    {% endfor %}
+    <div>
+        <span>
+            {% if page_obj.has_previous %}
+                <a href="?page={{page_obj.previous_page_number}}">Previous</a>
+            {% endif %}
+            <span>{{page_obj.number}}</span>
+            
+            {% if page_obj.has_next %}
+            <a  href="?page={{page_obj.next_page_number}}">Next</a>
+            {% endif %}
+        </span>
+    </div>
+</body>
+</html>
+
